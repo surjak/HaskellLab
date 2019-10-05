@@ -1,2 +1,2 @@
 ## HaskellLab
-Repozytorium z zadaniami z laboratoriów z haskella z Programowania funkcyjnego
+Zadania z laboratoriów z Programowania funkcyjnego w języku Haskell
