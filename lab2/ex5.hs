@@ -1,3 +1,5 @@
+{-# LANGUAGE BangPatterns #-}
+
 fib :: (Num a, Eq a) => a -> a
 fib n =
  if n == 0 || n == 1 then n
@@ -54,3 +56,30 @@ avg a = sum' a / (fromIntegral $ length' a)
 
 gAvg :: Floating a => [a] -> a
 gAvg x = (prod' x) ** (1 / (fromIntegral $ length' x))
+
+
+sum'2 :: Num a => [a] -> a
+sum'2 xs = loop 0 xs
+ where loop acc []     = acc
+       loop acc (x:xs) = loop (x + acc) xs
+
+
+sum'3 :: Num a => [a] -> a
+sum'3 = loop 0
+ where loop acc []     = acc
+       loop acc (x:xs) = loop (x + acc) xs
+
+prod'2 :: Num a => [a] -> a
+prod'2 xs = loop 1 xs
+    where loop acc [] = acc
+          loop acc (x:xs) = loop (acc*x) xs
+
+length'2 :: [a] -> Int
+length'2 xs = loop 0 xs 
+    where loop acc [] = acc
+          loop acc (x:xs) = loop (acc +1) xs
+
+sum'4 :: Num a => [a] -> a
+sum'4 = loop 0
+   where loop !acc []     = acc
+         loop !acc (x:xs) = loop (x + acc) xs
