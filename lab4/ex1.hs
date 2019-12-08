@@ -28,9 +28,9 @@ personInfoToString' :: PersonInfoToStringType'
 personInfoToString' (nm,snm,addr) =
     "name: " ++ nm ++ ", surname: " ++ snm ++ ", addr: " ++ addr
 
-newtype Name'' = Name String
-newtype Surname'' = Surname String
-newtype Address'' = Address String
+newtype Name'' = Name String deriving Show
+newtype Surname'' = Surname String deriving Show
+newtype Address'' = Address String deriving Show
 type PersonInfo'' = (Name'', Surname'', Address'')
 type PersonInfoToStringType'' = PersonInfo'' -> String
 
